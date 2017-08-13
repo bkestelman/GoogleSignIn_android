@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">GoogleSigninLib</string>
+    <string name="server_client_id">[Replace this with your Google Web Client ID]</string>
+</resources>
