@@ -6,7 +6,7 @@ GoogleSignIn is an Activity with a Google sign in button which authenticates a u
 
 To use it from your Activity, use startActivityForResult, like so: 
 ```
-private static final String SIGNIN_REQ = 111; // request code to identify result from GoogleSignIn (can be any number)
+private static final String SIGNIN_REQ = 1; // request code to identify result from GoogleSignIn (can be any number)
 ...
 protected void onCreate(Bundle SavedInstanceState) { 
         ...        
@@ -21,14 +21,9 @@ And obtain the result with onActivityResult:
 ```
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == SIGNIN_REQ) {
-            if(resultCode == RESULT_OK) {
                 GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-                TextView hello = (TextView)findViewById(R.id.hello); // assumes you have a TextView in your layout called hello
-                hello.setText("Hello " + result.getSignInAccount()); // test if sign in worked
-            }
-            else {
-                // Error 
-            }
+                TextView hello = (TextView)findViewById(R.id.hello);
+                hello.setText("Hello " + result.getSignInAccount());
         }
 }
 ```
