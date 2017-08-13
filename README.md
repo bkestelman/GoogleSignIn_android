@@ -42,11 +42,9 @@ maven {
 ```
 to repositories (right after jcenter())
 
-### Authenticating your client with Google
-This is required to use Google Sign In: https://developers.google.com/android/guides/client-auth
+### Authenticating your client with Google and Obtaining Configuration Files
+Follow these steps to set up your app to use Google Sign In: https://developers.google.com/identity/sign-in/android/start-integrating
 
 ### server_client_id
-This is required in your values/strings.xml if you plan on sending a GoogleID token to a backend server. You can obtain one through the Google Console Developers API (look for Web Client ID under OAuth 2.0).
+Set the value of server_client_id in your values/strings.xml if you plan on sending a GoogleID token to a backend server. You can obtain the appropriate value by following the directions in the link above, under the section "Get your backend server's OAuth 2.0 client ID".
 
-I can't think of why you wouldn't need this, but if that's the case and you really don't want to set it up, you must comment out this line of code from GoogleSignIn.java:
-``` .requestIdToken(getString(R.string.server_client_id)) ```
