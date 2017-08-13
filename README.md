@@ -32,3 +32,26 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         }
 }
 ```
+
+### Gradle
+The module build.gradle is included in this repository. The only special line is: 
+```compile 'com.google.android.gms:play-services-auth:11.0.4'```
+Just keep the version up to date. 
+
+In your root/project build.gradle, you need to add: 
+```classpath 'com.google.gms:google-services:3.1.0'``` to dependencies, and
+```
+maven {
+            url "https://maven.google.com"
+        }
+```
+to repositories (right after jcenter())
+
+### Authenticating your client with Google
+This is required to use Google Sign In: https://developers.google.com/android/guides/client-auth
+
+### server_client_id
+This is required in your values/strings.xml if you plan on sending a GoogleID token to a backend server. You can obtain one through the Google Console Developers API (look for Web Client ID under OAuth 2.0).
+
+I can't think of why you wouldn't need this, but if that's the case and you really don't want to set it up, you must comment out this line of code from GoogleSignIn.java:
+``` .requestIdToken(getString(R.string.server_client_id)) ```
